@@ -23,7 +23,15 @@ void writeToFile(const vector<string>& lines, const string& filename) {
 }
 
 int main() {
-    vector<string> data = readFromFile("input.txt");
+    setlocale(LC_ALL, "Russian");
+    //vector<string> data = readFromFile("input.txt");
+    //тестовый вектор
+    vector<string> data = {
+        "ѕерва€ строка из тестовых данных",
+        "¬тора€ строка дл€ проверки вывода",
+        "“реть€ строка программы",
+        "„етверта€ и последн€€ строка"
+    };
     printToScreen(data);
     writeToFile(data, "output.txt");
     return 0;
