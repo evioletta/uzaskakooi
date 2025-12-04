@@ -22,9 +22,19 @@ void writeToFile(const vector<string>& lines, const string& filename) {
     // TODO: Реализация записи в файл
 }
 
+// Изменения в main() для тестирования
 int main() {
+    setlocale(LC_ALL, "RU");
     vector<string> data = readFromFile("input.txt");
-    printToScreen(data);
-    writeToFile(data, "output.txt");
+
+    // Временный вывод для проверки
+    cout << "Прочитано строк: " << data.size() << endl;
+    for (const auto& line : data) {
+        cout << "> " << line << endl;
+    }
+
+    // printToScreen(data);
+    // writeToFile(data, "output.txt");
+
     return 0;
 }
