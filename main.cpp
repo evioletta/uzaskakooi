@@ -32,7 +32,20 @@ void printToScreen(const vector<string>& lines) {
 
 // Функция 3: Запись вектора строк в файл
 void writeToFile(const vector<string>& lines, const string& filename) {
-    // TODO: Реализация записи в файл
+    ofstream outputFile(filename);
+
+    if (!outputFile.is_open()) {
+        cerr << "ОШИБКА: Не удалось открыть файл '" << filename
+             << "' для записи!" << endl;
+        return;
+    }
+
+    for (const auto& line : lines) {
+        outputFile << line << endl;
+    }
+
+    outputFile.close();
+    cout << "УСПЕХ: Данные записаны в файл '" << filename << "'" << endl;
 }
 
 int main() {
