@@ -14,7 +14,20 @@ vector<string> readFromFile(const string& filename) {
 
 // Функция 2: Вывод вектора строк на экран
 void printToScreen(const vector<string>& lines) {
-    // TODO: Реализация вывода на экран
+     if (lines.empty()) {
+        cout << "Вектор строк пуст!" << endl;
+        return;
+    }
+
+    cout << "\nСОДЕРЖИМОЕ ВЕКТОРА" << endl;
+    cout << "Всего строк: " << lines.size() << endl;
+    cout << "----------------------------" << endl;
+
+    for (size_t i = 0; i < lines.size(); ++i) {
+        cout << "[" << i + 1 << "/" << lines.size() << "] " << lines[i] << endl;
+    }
+
+    cout << "КОНЕЦ ВЫВОДА\n" << endl;
 }
 
 // Функция 3: Запись вектора строк в файл
