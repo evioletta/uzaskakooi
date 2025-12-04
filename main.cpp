@@ -39,16 +39,43 @@ vector<string> readFromFile(const string& filename) {
 
 // Функция 2: Вывод вектора строк на экран
 void printToScreen(const vector<string>& lines) {
-    // TODO: Реализация вывода на экран
+     if (lines.empty()) {
+        cout << "Вектор строк пуст!" << endl;
+        return;
+    }
+
+    cout << "\nСОДЕРЖИМОЕ ВЕКТОРА" << endl;
+    cout << "Всего строк: " << lines.size() << endl;
+    cout << "----------------------------" << endl;
+
+    for (size_t i = 0; i < lines.size(); ++i) {
+        cout << "[" << i + 1 << "/" << lines.size() << "] " << lines[i] << endl;
+    }
+
+    cout << "КОНЕЦ ВЫВОДА\n" << endl;
 }
 
 // Функция 3: Запись вектора строк в файл
 void writeToFile(const vector<string>& lines, const string& filename) {
-    // TODO: Реализация записи в файл
+    ofstream outputFile(filename);
+
+    if (!outputFile.is_open()) {
+        cerr << "ОШИБКА: Не удалось открыть файл '" << filename
+             << "' для записи!" << endl;
+        return;
+    }
+
+    for (const auto& line : lines) {
+        outputFile << line << endl;
+    }
+
+    outputFile.close();
+    cout << "УСПЕХ: Данные записаны в файл '" << filename << "'" << endl;
 }
 
 // Изменения в main() для тестирования
 int main() {
+    setlocale(LC_ALL, "Russian");
     vector<string> data = readFromFile("input.txt");
     printToScreen(data);
     writeToFile(data, "output.txt");
